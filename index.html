@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Um convite pra Glória ❤️</title>
+  <meta name="description" content="Um convite um pouquinho diferente.">
+  <meta name="theme-color" content="#FFF5ED">
+  <meta name="robots" content="noindex">
+
+  <!-- Prévia do link no WhatsApp -->
+  <meta property="og:title" content="Glória Godart ❤️ — posso te chamar pra sair?">
+  <meta property="og:description" content="Um convite um pouquinho diferente. Feito com coragem, carinho e uma quantidade questionável de CSS.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fontes (Google Fonts, gratuitas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..500&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-screen="invite">
+
+  <!-- Textura de papel + manchas de cor (puramente decorativas) -->
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Região lida por leitores de tela -->
+  <p class="sr-only" id="live" aria-live="polite"></p>
+
+  <main>
+
+    <!-- =====================================================
+         TELA 1 — O CONVITE
+         ===================================================== -->
+    <section class="screen screen--invite" id="screen-invite" aria-labelledby="invite-title">
+
+      <header class="topbar rise" style="--i:0">
+        <span>Convite Nº 001</span>
+        <span class="topbar__line" aria-hidden="true"></span>
+        <span>pessoal e intransferível</span>
+      </header>
+
+      <!-- Selo giratório decorativo -->
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+        <defs><path id="stampCircle" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+        <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="60" cy="60" r="31" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 4"/>
+        <g class="stamp__ring">
+          <text><textPath href="#stampCircle">feito à mão ✶ edição única ✶ com carinho ✶</textPath></text>
+        </g>
+        <path class="stamp__heart" d="M60 74 c-9-6-14-11-14-17 c0-4 3-7 7-7 c3 0 5 1.5 7 4 c2-2.5 4-4 7-4 c4 0 7 3 7 7 c0 6-5 11-14 17z"/>
+      </svg>
+
+      <div class="invite">
+        <p class="invite__to rise" style="--i:1">
+          <span class="hand">para</span>
+          <strong data-her-name>Glória Godart</strong> <span aria-hidden="true">❤️</span>
+        </p>
+
+        <h1 class="invite__title rise" id="invite-title" style="--i:2">
+          Posso te chamar
+          <em class="scribble">pra sair?
+            <svg class="scribble__line" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M4 16 C 60 6, 120 8, 170 12 S 260 20, 296 7"/>
+            </svg>
+          </em>
+        </h1>
+
+        <div class="invite__grid">
+          <p class="invite__aside hand rise" style="--i:3" aria-hidden="true">
+            uma carta curta,<br>com botões
+            <svg viewBox="0 0 60 40" focusable="false"><path d="M4 6 C 20 4, 40 12, 50 32 M 40 28 L 50 33 L 53 22"/></svg>
+          </p>
+
+          <div class="invite__body">
+            <div class="invite__text rise" style="--i:3">
+              <p>Eu poderia simplesmente puxar assunto e te chamar pra sair.</p>
+              <p>Mas aparentemente meu jeito de me expressar é criar essas coisas.</p>
+              <p>Então... resolvi fazer um convite <span class="mark">um pouquinho diferente.</span></p>
+            </div>
+
+            <div class="choices rise" style="--i:4">
+              <button class="btn btn--yes" id="btnYes" type="button">
+                <span class="btn__label">SIM, EU TOPO!</span> <span class="beat" aria-hidden="true">❤️</span>
+              </button>
+
+              <!-- O botão NÃO mora aqui (até sair correndo) -->
+              <div class="no-slot" id="noSlot">
+                <div class="runaway" id="runaway">
+                  <span class="bubble" id="bubble" aria-hidden="true"></span>
+                  <span class="sweat" aria-hidden="true"></span>
+                  <button class="btn btn--no" id="btnNo" type="button">NÃO <span aria-hidden="true">😶</span></button>
+                  <span class="legs" aria-hidden="true"><span class="leg leg--l"></span><span class="leg leg--r"></span></span>
+                </div>
+                <span class="no-slot__ghost hand" aria-hidden="true">aqui morava<br>o botão “não”</span>
+              </div>
+            </div>
+
+            <p class="hint hand rise" style="--i:5" aria-hidden="true">↑ recomendado por 10 entre 10 <span data-my-name>Gabriel</span>s</p>
+
+            <p class="decline" id="declineWrap" hidden>
+              <button class="link" id="btnDeclineForReal" type="button">Quer responder “não” de verdade? Tudo bem — toque aqui.</button>
+            </p>
+
+            <p class="footnote rise" style="--i:6">
+              <span aria-hidden="true">*</span> Projeto desenvolvido com coragem, carinho e uma quantidade questionável de CSS.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         TELA 2 — O CATÁLOGO DE ENCONTROS
+         ===================================================== -->
+    <section class="screen screen--catalog" id="screen-catalog" aria-labelledby="catalog-title" hidden>
+      <header class="catalog-head">
+        <p class="kicker">Capítulo 2 <span aria-hidden="true">·</span> Escolha nossa aventura</p>
+        <h2 class="catalog-head__title" id="catalog-title" tabindex="-1" data-focus>
+          Eu sabia que você tinha bom gosto. <span class="nowrap">❤️</span>
+        </h2>
+        <div class="catalog-head__grid">
+          <p class="catalog-head__lead">Agora vem a parte importante: qual dessas coisas você toparia fazer comigo?</p>
+          <div>
+            <p class="catalog-head__aside">Preparei algumas propostas. Algumas são perfeitamente razoáveis. Outras deveriam exigir <span class="mark">autorização da NASA.</span></p>
+            <p class="catalog-head__note"><span aria-hidden="true">✶</span> Pode escolher qualquer uma — são todas só sugestões pra gente combinar junto.</p>
+          </div>
+        </div>
+        <ul class="stats" aria-label="Resumo">
+          <li><strong id="statCount">11</strong> ideias</li>
+          <li><strong>0</strong> compromissos</li>
+          <li><strong>100%</strong> sugestões</li>
+        </ul>
+      </header>
+
+      <ul class="cards" id="cards"></ul>
+
+      <footer class="catalog-foot">
+        <p class="catalog-foot__hand hand">Nenhuma te convenceu?</p>
+        <p>Todas as ideias são só pontos de partida. Se você tiver uma melhor, eu topo ouvir.</p>
+        <a class="btn btn--outline" id="btnSuggest" target="_blank" rel="noopener">Sugerir outro rolê <span aria-hidden="true">✍️</span></a>
+        <p class="whats-warn" id="suggestWarn" hidden></p>
+        <p class="signature">Feito à mão por <span data-my-name>Gabriel</span>, com coragem, carinho e uma quantidade questionável de CSS.</p>
+      </footer>
+    </section>
+
+    <!-- =====================================================
+         TELA ALTERNATIVA — A RECUSA (respeitada!)
+         ===================================================== -->
+    <section class="screen screen--declined" id="screen-declined" aria-labelledby="declined-title" hidden>
+      <div class="declined">
+        <svg class="declined__art" viewBox="0 0 120 80" aria-hidden="true" focusable="false">
+          <path d="M20 60 Q60 20 100 60" />
+          <circle cx="40" cy="42" r="3"/><circle cx="80" cy="42" r="3"/>
+        </svg>
+        <h2 id="declined-title" tabindex="-1" data-focus>Tudo bem. De verdade. <span aria-hidden="true">🙂</span></h2>
+        <p>Obrigado por ter lido até aqui — e por ter me deixado tentar desse jeito meio esquisito.</p>
+        <p>Fica o carinho, sem nenhum climão.</p>
+        <p class="hand declined__hand">(o botão “não” mandou dizer que já se acalmou)</p>
+        <button class="link" id="btnBackToInvite" type="button">Voltar ao convite</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================
+       DETALHES DA ATIVIDADE (modal)
+       ===================================================== -->
+  <dialog class="detail" id="detail" aria-labelledby="detailTitle">
+    <div class="detail__inner">
+      <button class="detail__close" type="button" data-close aria-label="Fechar e ver outras ideias">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <div class="detail__scroll">
+        <div class="detail__art" id="detailArt"></div>
+        <div class="detail__body">
+          <p class="kicker" id="detailKicker"></p>
+          <h3 class="detail__title" id="detailTitle"></h3>
+          <div class="detail__desc" id="detailDesc"></div>
+          <div id="detailExtra"></div>
+          <p class="detail__fine" id="detailFine"></p>
+        </div>
+      </div>
+
+      <div class="detail__actions">
+        <a class="btn btn--yes btn--block" id="btnWhats" target="_blank" rel="noopener">
+          <span class="btn__label">CURTIU? ENTÃO VAMOS!</span> <span class="beat" aria-hidden="true">❤️</span>
+        </a>
+        <p class="whats-warn" id="whatsWarn" hidden></p>
+        <p class="detail__hint">Abre o WhatsApp com a mensagem pronta. Você revisa e só envia se quiser.</p>
+        <button class="btn btn--ghost btn--block" type="button" data-close>Ver outras ideias</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Cortina da transição SIM → catálogo -->
+  <div class="curtain" id="curtain" aria-hidden="true">
+    <p class="curtain__text">eu sabia.</p>
+  </div>
+
+  <noscript>
+    <p class="noscript">Este convite precisa de JavaScript ligado pra funcionar. ❤️</p>
+  </noscript>
+</body>
+</html>
